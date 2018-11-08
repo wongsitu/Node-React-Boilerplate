@@ -78,4 +78,95 @@ Also, remove Serviceworker from index.js, the serviceWorker file and favicon.ico
 ```
 ## Connecting frontend and backend
 
-We got frontend and backend folders, now it's time to connect them. 
+We got frontend and backend folders, now it's time to connect them. But first, let's install some modules that we need. in our backend folder, terminal:
+
+```
+    npm link cors
+    npm install cors
+```
+
+Let's go to our server.js in our backend folder:
+
+```javascript
+    const express = require('express')
+    const parser = require('body-parser')
+    const cors = require('cors')
+    const app = express()
+
+    app.use(cors())
+    app.use(parser.json())
+
+    app.listen(3001, () => console.log('Listening on port 3001 :)'))
+```
+Then, in our db folder, lets create a connection.js file:
+
+```
+    cd db
+    touch connection.js
+```
+Inside connection.js type the following:
+
+```javascript
+    const mongoose = require('mongoose')
+
+    mongoose.Promise = Promise
+
+    mongoose.connect('mongodb://localhost/react-node-boiler')
+        .then(connection => console.log('Connection established!'))
+        .catch(err => console.log('Connection failed!', err))
+
+    module.exports = mongoose
+```
+At this point, everything should be connected.
+
+## Running our full-stack app
+
+In our terminal, go to backend folder and run:
+
+```
+    mongod
+```
+
+Then open another terminal window at the same level using command + t:
+
+```
+    nodemon
+```
+
+If the app crashes, odds are you need to install some modules. Jus google them and npm install them. If everything works, you should the the message:
+
+```
+    'Connection established!'
+    'Listening on port 3001 :)'
+```
+
+Finally, in your React frontend folder:
+
+```
+    npm start
+```
+
+If you want, you can do a sanity check by writting an h1 tag "hello world" message in App.js. Congrats! You have a full-stack Node-React App running!
+
+## Extra modules
+
+### Enviromental Variables
+
+Sometimes, there are some important variables we do not want to make public. This is very useful when using JWT tokens To do this we will use dotenv. In terminal:
+
+```
+    npm install dotenv
+```
+Then create a .env inside backend folder or frontnd foloder, depending on where you're planning to use it. Here is an example how to set a env variable. Inside .env file:
+
+```
+    SuperSecretTaco = SuP3rS3cR3tT4c0
+```
+
+To call this variable:
+
+```javascript
+    require('dotenv').config() //call this at the top of the file
+
+    const taco = process.env.SuperSecretTaco
+```
