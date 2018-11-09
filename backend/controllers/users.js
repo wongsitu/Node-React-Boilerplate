@@ -19,7 +19,6 @@ function verifyToken(req, res, next) {
     // when we send our token, we want to send it in our header
     const bearerHeader = req.headers['authorization'];
     console.log(bearerHeader)
-    console.log("Hi")
     // Check if bearer is undefined
     if(typeof bearerHeader !== 'undefined'){
         const bearer = bearerHeader.split(' ');
@@ -59,7 +58,7 @@ router.get('/:id', (req, res) => {
 // /users/signup
 router.post('/signup', (req, res) => {
     // if they gave us an email and password
-    if (req.body.email && req.body.username && req.body.password) {
+    if (req.body.email && req.body.username && req.body.password && req.body.first_name && req.body.last_name) {
         // creating a new user based off the req.body
         bcrypt.hash(req.body.password, 10, (err, hash) => {
             if(err){ 
@@ -70,12 +69,14 @@ router.post('/signup', (req, res) => {
             let newUser = {
                 email: req.body.email,
                 username: req.body.username,
-                password: hash
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                password: hash,
             }
             // find a user based on that email
             User.findOne({ email: req.body.email })
                 .then((user) => {
-                    // if we don't hvae a user in our db
+                    // if we don't have a user in our db
                     if (!user) {
                         // then we'll create a new user
                         User.create(newUser)
