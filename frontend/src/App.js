@@ -16,6 +16,7 @@ class App extends Component {
       password: '',
       first_name: '',
       last_name: '',
+      username:'',
       isLoggedIn: false,
       userId: '',
     }
@@ -31,10 +32,11 @@ class App extends Component {
     e.preventDefault()
     axios.post('http://localhost:3001/users/signup',
       {
-        email: this.state.email,
-        password: this.state.password,
         first_name: this.state.first_name,
         last_name: this.state.last_name,
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password,
       }
     )
     .then(response => {
@@ -95,7 +97,7 @@ class App extends Component {
               return (
                 <div>
                   <Navigation/>
-                  <Landing/>
+                  <Landing handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
                 </div>
               )
             }}
