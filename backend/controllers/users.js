@@ -48,12 +48,19 @@ User.find({})
     .then(users => res.json(users))
 });
 
-// /users/  => Show one user
+// /users/:id  => Show one user
 router.get('/:id', (req, res) => {
     let userId = req.params.id
     User.findById({_id:userId})
         .then(user => res.json(user))
 });
+
+// /users/:id  => Delete one user
+router.delete('/:id', (req,res) =>{
+    let userId = req.params.id
+    User.deleteOne({_id:userId})
+        .then(user => res.json(user))
+})
 
 // /users/signup
 router.post('/signup', (req, res) => {
