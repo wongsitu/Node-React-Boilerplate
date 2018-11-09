@@ -90,7 +90,7 @@ router.post('/signup', (req, res) => {
                                     res.json({ token: token })
                                 // user was not successfully made  
                                 } else {
-                                    res.sendStatus(401).json({err: 'We\'re tired. try again'})
+                                    res.sendStatus(401).json({err: 'We\'re tired.'})
                                 }
                             })
                         // we already have a user in our db
