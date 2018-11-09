@@ -1,11 +1,12 @@
-const mongoose = require('../db/connection')
+const mongoose = require('../db/connection'),
+    Schema = mongoose.Schema;
 
 const PostSchema = new mongoose.Schema({
     user:{
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
-    content: { 
+    content: {
         type: String 
     },
 })

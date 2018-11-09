@@ -1,4 +1,5 @@
-const mongoose = require('../db/connection')
+const mongoose = require('../db/connection'),
+    Schema = mongoose.Schema;
 
 const CommentSchema = new mongoose.Schema({
     user:{
