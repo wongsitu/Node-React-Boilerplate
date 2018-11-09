@@ -111,7 +111,7 @@ Inside connection.js type the following:
 
     mongoose.Promise = Promise
 
-    mongoose.connect('mongodb://localhost/react-node-boiler')
+    mongoose.connect('mongodb://localhost/react-node-boiler') // 'mongodb://localhost/name_of_your_database'
         .then(connection => console.log('Connection established!'))
         .catch(err => console.log('Connection failed!', err))
 
@@ -157,7 +157,7 @@ Sometimes, there are some important variables we do not want to make public. Thi
 ```
     npm install dotenv
 ```
-Then create a .env inside backend folder or frontnd foloder, depending on where you're planning to use it. Here is an example how to set a env variable. Inside .env file:
+Then create a .env inside backend folder or frontend folder, depending on where you're planning to use it. Here is an example how to set a env variable. Inside .env file:
 
 ```
     SuperSecretTaco = SuP3rS3cR3tT4c0
