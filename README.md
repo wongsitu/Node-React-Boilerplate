@@ -150,7 +150,7 @@ If you want, you can do a sanity check by writting an h1 tag "hello world" messa
 
 ## Extra modules
 
-### Enviromental Variables
+### 1. Enviromental Variables
 
 Sometimes, there are some important variables we do not want to make public. This is very useful when using JWT tokens To do this we will use dotenv. In terminal:
 
@@ -169,4 +169,26 @@ To call this variable:
     require('dotenv').config() //call this at the top of the file
 
     const taco = process.env.SuperSecretTaco
+```
+### 2. Body Parser
+
+Parse is very useful. It's used mainly to extract the information from the input fields. To install:
+
+```
+    npm install body-parser
+```
+
+### 3. Authentication
+
+```
+    npm install passport
+    npm install jwt-simple
+    npm install passport-jwt
+    npm install bcrypt 
+```
+
+### API calls
+
+```
+    npm install axios
 ```
