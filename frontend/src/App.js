@@ -7,6 +7,7 @@ import PostsContainer from './components/postscontainer/postscontainer'
 import Profile from './components/profile/profile'
 import Aside from './components/aside/aside'
 import Landing from './components/landing/landing'
+import Login from './components/login/login'
 
 class App extends Component {
   constructor () {
@@ -92,12 +93,31 @@ class App extends Component {
               )
             }}
           />
+          <Route path='/login'
+            render={() => {
+              return (
+                <div>
+                  <Navigation/>
+                  <Login handleLogIn={this.handleLogIn} handleInput={this.handleInput}/>
+                </div>
+              )
+            }}
+          />
+          <Route path='/signup'
+            render={() => {
+              return (
+                <div>
+                  <Navigation/>
+                  <Landing handleInput={this.handleInput} handleSignUp={this.handleSignUp}/>
+                </div>
+              )
+            }}
+          />
           <Route path='/'
             render={() => {
               return (
                 <div>
                   <Navigation/>
-                  <Landing handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
                 </div>
               )
             }}
