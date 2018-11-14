@@ -21,7 +21,7 @@ class Landing extends Component {
                     </div>
                     <div className="form-group row">
                         <div className="offset-sm-2 col-sm-10">
-                            <button type="submit" className="btn btn-primary">Login</button>
+                            <button type="submit" className="btn btn-primary" onClick={this.props.handleLogIn}>Login</button>
                         </div>
                     </div>
                 </form>

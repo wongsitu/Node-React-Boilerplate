@@ -17,5 +17,4 @@ app.use('/users', userController)
 app.use('/posts', postController)
 app.use('./comments', commentController)
 
-
 app.listen(3001, () => console.log('Listening on port 3001 :)'))

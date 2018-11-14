@@ -29,14 +29,15 @@ At this point, we should see a package.json, package-lock.json and node_modules.
 ```
 touch server.js
 mkdir controllers
-mkdir public
 mkdir db
 mkdir models
 ```
 
+NOTE: A public folder is not needed since we are using React as frontend. 
+
 ## Setting up the Frontend
 
-Now that we got our backend, let's set up our React frontend. Go back to the same level of your backend folder and type the following
+Now that we got our backend, let's set up our React frontend.In your terminal, go back to the same level of your backend folder and type the following
 
 ```
 create-react-app frontend
@@ -177,6 +178,7 @@ Parse is very useful. It's used mainly to extract the information from the input
 ```
 npm install body-parser
 ```
+This will allow you to use req.body
 
 ### 3. Authentication
 
@@ -187,8 +189,14 @@ npm install passport-jwt
 npm install bcrypt 
 ```
 
-### API calls
+### 4. API calls
 
+In your terminal:
 ```
 npm install axios
+```
+In your project:
+
+```javascript
+import axios from 'axios'
 ```
