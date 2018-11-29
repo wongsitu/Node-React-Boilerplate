@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './posts.css';
-import { Route, Link, Switch } from 'react-router-dom'
 
 class Posts extends Component {
     render() {

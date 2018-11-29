@@ -50,7 +50,7 @@ To include our Router,inside src, go to index.js and copy this:
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-BrowserRouter as Router
+    BrowserRouter as Router
 } from "react-router-dom"
 
 import App from './App';
@@ -85,8 +85,7 @@ We got frontend and backend folders, now it's time to connect them. But first, l
 npm link cors
 npm install cors
 ```
-
-Let's go to our server.js in our backend folder:
+Installing cors will allow both, frontend and backend servers to communicate without installing Google Chrome CORS extension. Whis that out of the way, let's go to our server.js in our backend folder:
 
 ```javascript
 const express = require('express')
@@ -148,6 +147,7 @@ npm start
 ```
 
 If you want, you can do a sanity check by writting an h1 tag "hello world" message in App.js. Congrats! You have a full-stack Node-React App running!
+You are all set up to start coding. Just write your backend endpoints and called them from the frontend using fetch or axios.
 
 ## Extra modules
 
@@ -182,6 +182,7 @@ This will allow you to use req.body
 
 ### 3. Authentication
 
+Here are the following packages that are important for user authentication:
 ```
 npm install passport
 npm install jwt-simple
@@ -195,8 +196,16 @@ In your terminal:
 ```
 npm install axios
 ```
-In your project:
+In your project, at the top of your file:
 
 ```javascript
 import axios from 'axios'
+```
+Here's a structure sample of an axios call:
+
+```javascript
+axios.get('http://my-url-backend-endpoint')
+    .then(response => {
+        // code
+    })
 ```

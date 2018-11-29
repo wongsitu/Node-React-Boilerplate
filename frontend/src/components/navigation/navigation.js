@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './navigation.css';
-import { Route, Link, Switch } from 'react-router-dom'
 
 class Navigation extends Component {
     render() {
@@ -11,16 +10,13 @@ class Navigation extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a className="navbar-brand" href="#">My LinkedIn</a>
+                        <a className="navbar-brand" href="/">My LinkedIn</a>
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Home</a>
+                                <a className="nav-link" href="/">Home</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Link</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Disabled</a>
                             </li>
                         </ul>
                         <form className="form-inline my-2 my-lg-0">
