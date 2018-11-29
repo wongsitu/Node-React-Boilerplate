@@ -6,14 +6,15 @@ import { Route, Link, Switch } from 'react-router-dom'
 class NewPost extends Component {
     render() {
         return (
-            <div>
-                <div class="card spacing">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <div className="card space">
+                    <div className="card-body">
+                        <h5 className="card-title">Share your thoughts</h5>
+                        <form className="form-group">
+                            <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
-            </div>
         );
     }
 }

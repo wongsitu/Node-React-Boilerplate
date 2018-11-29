@@ -7,8 +7,13 @@ const PostSchema = new mongoose.Schema({
         ref: 'User',
     },
     content: {
-        type: String 
+        type: String,
+        required: true, 
     },
+    comments: {
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
+    }
 })
 
 mongoose.model('Post', PostSchema)

@@ -7,10 +7,12 @@ const CommentSchema = new mongoose.Schema({
         ref: 'User',
     },
     content: { 
-        type: String 
+        type: String,
+        required: true, 
     },
     votes: {
-        type: Number
+        type: Number,
+        default: 0,
     },
     replies: [this]
 })

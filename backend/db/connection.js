@@ -4,7 +4,7 @@ mongoose.Promise = Promise
 
 // 'mongodb://mongo:27017/react-node-boiler' => Use this route to run docker compose
 
-mongoose.connect('mongodb://localhost/react-node-boiler')
+mongoose.connect('mongodb://localhost/react-node-boiler', { useNewUrlParser: true })
     .then(connection => console.log('Connection established!'))
     .catch(err => console.log('Connection failed!', err))
 
