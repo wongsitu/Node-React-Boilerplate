@@ -10,5 +10,5 @@ const Comment = require('./Comment')
 module.exports ={
     User: User,
     Post: Post,
-    Comment: Comment
+    Comment: Comment,
 }

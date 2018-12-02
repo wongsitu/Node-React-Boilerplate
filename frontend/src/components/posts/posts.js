@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import './posts.css';
+import axios from 'axios'
 
 class Posts extends Component {
+    constructor(){
+        super()
+        this.state={
+
+        }
+    }
+
+    componentDidMount = () => {
+        axios.get().then(
+
+        )
+
+    }
+
     render() {
         return (
             <div className="card">

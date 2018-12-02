@@ -86,7 +86,7 @@ class App extends Component {
                   <Navigation/>
                   <div className="horizontal-align">
                     <Profile/>
-                    <PostsContainer/>
+                    <PostsContainer handleInput={this.handleInput}/>
                     <Aside/>
                   </div>
                 </div>

@@ -13,7 +13,7 @@ app.use(cors())
 app.use(parser.json())
 app.use(parser.urlencoded({ extended: true }))
 
-app.use('users', userController)
+app.use('/users', userController)
 app.use('/posts', postController)
 app.use('/comments', commentController)
 
