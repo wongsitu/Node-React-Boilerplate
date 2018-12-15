@@ -2,13 +2,38 @@ import React, { Component } from 'react';
 import './postscontainer.css';
 import Posts from '../posts/posts'
 import NewPost from '../newpost/newpost'
+import axios from 'axios'
 
 class PostsContainer extends Component {
+    constructor(){
+        super()
+        this.state = {
+            content: '',
+        }
+    }
+
+    handleInput = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleDelete = (postId) =>{
+        axios.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem('token');
+        axios.delete(`http://localhost:3001/posts/${postId}`,axios.defaults.headers.common['authorization'])
+    }
+
+    handleCreate = (e) => {
+        // e.preventDefault();
+        axios.post('http://localhost:3001/posts/new', {content: this.state.content})
+    }
+
     render() {
+
         return (
             <div className="container">
-                <NewPost handleInput={this.props.handleInput}/>
-                <Posts/>
+                <NewPost handleCreate={this.handleCreate} handleInput={this.handleInput}/>
+                <Posts handleDelete={this.handleDelete}/>
             </div>
         );
     }

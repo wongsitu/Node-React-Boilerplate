@@ -5,26 +5,34 @@ import axios from 'axios'
 class Posts extends Component {
     constructor(){
         super()
-        this.state={
-
+        this.state = {
+            posts:[],
         }
     }
 
     componentDidMount = () => {
-        axios.get().then(
-
-        )
-
-    }
+        axios.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem('token');
+        axios.get("http://localhost:3001/posts",axios.defaults.headers.common['authorization']).then(
+            response => {
+                this.setState({
+                    posts: response.data
+                })
+            })
+        }
 
     render() {
+        let posts = this.state.posts.map((post, index) => {
+            return (<div key={index} className="card">
+                        <div className="card-body">
+                            <p>{post.content}</p>
+                            <button className="btn btn-danger" onClick={this.props.handleDelete(post._id)}>Delete</button>
+                        </div>
+                    </div>)
+            })
+            console.log(this.state.posts)
         return (
-            <div className="card">
-                <div className="card-body">
-                    <h5 className="card-title">Special title treatment</h5>
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                </div>
+            <div>
+                {posts}
             </div>
         );
     }

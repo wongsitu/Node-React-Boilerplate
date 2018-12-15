@@ -18,7 +18,7 @@
     "jwt-simple": "^0.5.5",
     "mongod": "^2.0.0",
     "mongoose": "^5.3.10",
-    "nodemon": "^1.18.7",
+    "nodemon": "^1.18.8",
     "parser": "^0.1.4",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0"
