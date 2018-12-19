@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import Navigation from './components/navigation/navigation'
 import PostsContainer from './components/postscontainer/postscontainer'
@@ -78,12 +78,12 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Navigation isLoggedIn={this.state.isLoggedIn}/>
         <Switch>
           <Route path='/feed'
             render={() => {
               return(
                 <div>
-                  <Navigation/>
                   <div className="horizontal-align">
                     <Profile/>
                     <PostsContainer handleInput={this.handleInput}/>
@@ -97,7 +97,6 @@ class App extends Component {
             render={() => {
               return (
                 <div>
-                  <Navigation/>
                   <Login handleLogIn={this.handleLogIn} handleInput={this.handleInput}/>
                 </div>
               )
@@ -107,7 +106,6 @@ class App extends Component {
             render={() => {
               return (
                 <div>
-                  <Navigation/>
                   <Landing handleInput={this.handleInput} handleSignUp={this.handleSignUp}/>
                 </div>
               )
@@ -117,7 +115,6 @@ class App extends Component {
             render={() => {
               return (
                 <div>
-                  <Navigation/>
                 </div>
               )
             }}

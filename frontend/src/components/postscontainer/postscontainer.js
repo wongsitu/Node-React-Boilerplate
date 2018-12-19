@@ -18,13 +18,7 @@ class PostsContainer extends Component {
         })
     }
 
-    handleDelete = (postId) =>{
-        axios.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem('token');
-        axios.delete(`http://localhost:3001/posts/${postId}`,axios.defaults.headers.common['authorization'])
-    }
-
     handleCreate = (e) => {
-        // e.preventDefault();
         axios.post('http://localhost:3001/posts/new', {content: this.state.content})
     }
 

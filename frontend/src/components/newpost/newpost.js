@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './newpost.css';
-import axios from 'axios'
 
 class NewPost extends Component {
     constructor(){

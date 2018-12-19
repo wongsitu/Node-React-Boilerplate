@@ -3,6 +3,16 @@ import './navigation.css';
 
 class Navigation extends Component {
     render() {
+        let authOptions = () => {
+            if(this.props.isLoggedIn){
+                console.log(this.props.isLoggedIn)
+            } else {
+                console.log("Nope")
+            }
+        }
+
+        authOptions()
+
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
