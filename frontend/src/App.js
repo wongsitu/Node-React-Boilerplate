@@ -3,11 +3,9 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import Navigation from './components/navigation/navigation'
-import PostsContainer from './components/postscontainer/postscontainer'
-import Profile from './components/profile/profile'
-import Aside from './components/aside/aside'
 import Landing from './components/landing/landing'
 import Login from './components/login/login'
+import Homepage from './pages/Homepage/Homepage'
 
 class App extends Component {
   constructor () {
@@ -80,45 +78,10 @@ class App extends Component {
       <div>
         <Navigation isLoggedIn={this.state.isLoggedIn}/>
         <Switch>
-          <Route path='/feed'
-            render={() => {
-              return(
-                <div>
-                  <div className="horizontal-align">
-                    <Profile/>
-                    <PostsContainer handleInput={this.handleInput}/>
-                    <Aside/>
-                  </div>
-                </div>
-              )
-            }}
-          />
-          <Route path='/login'
-            render={() => {
-              return (
-                <div>
-                  <Login handleLogIn={this.handleLogIn} handleInput={this.handleInput}/>
-                </div>
-              )
-            }}
-          />
-          <Route path='/signup'
-            render={() => {
-              return (
-                <div>
-                  <Landing handleInput={this.handleInput} handleSignUp={this.handleSignUp}/>
-                </div>
-              )
-            }}
-          />
-          <Route path='/'
-            render={() => {
-              return (
-                <div>
-                </div>
-              )
-            }}
-          />
+          <Route path='/feed' render={() => { return(<Homepage/>)}}/>
+          <Route path='/login' render={() => { return (<div><Login handleLogIn={this.handleLogIn} handleInput={this.handleInput}/></div>)}}/>
+          <Route path='/signup' render={() => { return (<div><Landing handleInput={this.handleInput} handleSignUp={this.handleSignUp}/></div>)}}/>
+          <Route path='/' render={() => { return (<div></div>)}}/>
         </Switch>
       </div>
     );
