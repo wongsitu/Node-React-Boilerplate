@@ -23,7 +23,6 @@ class PostsContainer extends Component {
     }
 
     render() {
-
         return (
             <div className="container">
                 <NewPost handleCreate={this.handleCreate} handleInput={this.handleInput}/>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Navigation from './components/navigation/navigation'
 import Landing from './components/landing/landing'
@@ -18,6 +18,18 @@ class App extends Component {
       username:'',
       isLoggedIn: false,
       userId: '',
+    }
+  }
+
+  componentDidMount () {
+    if (localStorage.token) {
+      this.setState({
+        isLoggedIn: true
+      })
+    } else {
+      this.setState({
+        isLoggedIn: false
+      })
     }
   }
 
@@ -43,6 +55,7 @@ class App extends Component {
       this.setState({
         isLoggedIn: true
       })
+      return window.location = "/feed"
     })
     .catch(err => console.log(err))
   }
@@ -58,6 +71,7 @@ class App extends Component {
       this.setState({
         isLoggedIn: true,
       })
+      return window.location = "/feed"
     })
     .catch(err => console.log(err))
   }
@@ -76,12 +90,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navigation isLoggedIn={this.state.isLoggedIn}/>
+        <Navigation isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut}/>
         <Switch>
-          <Route path='/feed' render={() => { return(<Homepage/>)}}/>
-          <Route path='/login' render={() => { return (<div><Login handleLogIn={this.handleLogIn} handleInput={this.handleInput}/></div>)}}/>
-          <Route path='/signup' render={() => { return (<div><Landing handleInput={this.handleInput} handleSignUp={this.handleSignUp}/></div>)}}/>
-          <Route path='/' render={() => { return (<div></div>)}}/>
+          <Route path='/feed' render={(props) => { return(<Homepage isLoggedIn={this.state.isLoggedIn}/>)}}/>
+          <Route path='/login' render={(props) => { return (<div><Login handleLogIn={this.handleLogIn} handleInput={this.handleInput}/></div>)}}/>
+          <Route path='/signup' render={(props) => { return (<div><Landing handleInput={this.handleInput} handleSignUp={this.handleSignUp}/></div>)}}/>
+          <Route path='/' render={(props) => { return (<div></div>)}}/>
         </Switch>
       </div>
     );

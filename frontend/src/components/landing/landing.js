@@ -6,7 +6,7 @@ class Landing extends Component {
         return (
             <div className="container spacing card">
                 <form className="spacing">
-                    <h1>Sign up</h1>
+                    <h1 className="text-center">Sign up</h1>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label">First Name</label>
                         <div className="col-sm-10">

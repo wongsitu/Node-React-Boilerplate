@@ -102,7 +102,7 @@ if (req.body.username && req.body.password) {
                     // lets make a token out of their user id and our secret
                     let token = jwt.encode(payload, config.jwtSecret)
                     // lets send that new token back to them
-                    res.json({ token })
+                    res.json({token})
                 } else {
                     // email/password are incorrect
                     res.sendStatus(401)

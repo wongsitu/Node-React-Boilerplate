@@ -2,16 +2,29 @@ import React, { Component } from 'react';
 import './navigation.css';
 
 class Navigation extends Component {
-    render() {
-        let authOptions = () => {
-            if(this.props.isLoggedIn){
-                console.log(this.props.isLoggedIn)
-            } else {
-                console.log("Nope")
-            }
+    constructor(props){
+        super(props)
+        this.state = {
+            
         }
+    }
 
-        authOptions()
+    render() {
+        let authOptions;
+        if(this.props.isLoggedIn){ 
+            authOptions =   
+                        <ul className="navbar-nav mt-2 mt-lg-0">
+                            <li className="nav-item">
+                                <a className="nav-link" href="#" onClick={this.props.handleLogOut}>Log out</a>
+                            </li>
+                        </ul>
+        } else {
+            authOptions = 
+                        <ul className="navbar-nav mt-2 mt-lg-0">
+                            <li className="nav-item"><a className="nav-link" href="/signup">Sign Up</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/login">Log In</a></li>
+                        </ul>
+        }
 
         return (
             <div>
@@ -29,6 +42,7 @@ class Navigation extends Component {
                                 <a className="nav-link" href="#">Link</a>
                             </li>
                         </ul>
+                        {authOptions}
                         <form className="form-inline my-2 my-lg-0">
                             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

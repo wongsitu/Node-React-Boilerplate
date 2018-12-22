@@ -37,6 +37,7 @@ class Posts extends Component {
                         <div className="card-body">
                             <p>{post.user.username}</p>
                             <p>{post.content}</p>
+                            <p>{post.date}</p>
                             <button className="btn btn-danger" onClick={() => { this.handleDelete(post._id,index)}}>Delete</button>
                         </div>
                     </div>)
